@@ -1,6 +1,6 @@
 export default class Validate {
-  static expiryTimestamp(expiryTimestamp: string) {
-    const isValid = new Date(expiryTimestamp).getTime() > 0
+  static expiryTimestamp(expiryTimestamp: any) {
+    const isValid = expiryTimestamp.getTime() > 0
     if (!isValid) {
       console.warn(
         "react-timer-hook: { useTimer } Invalid expiryTimestamp settings",

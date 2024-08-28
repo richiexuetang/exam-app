@@ -15,7 +15,7 @@ export default class Time {
     }
   }
 
-  static getSecondsFromExpiry(expiry: number, shouldRound?: boolean) {
+  static getSecondsFromExpiry(expiry: any, shouldRound?: boolean) {
     const now = new Date().getTime()
     const milliSecondsDistance = expiry - now
     if (milliSecondsDistance > 0) {
