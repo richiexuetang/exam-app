@@ -1,0 +1,48 @@
+import Link from "next/link"
+
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card"
+
+export default function ExamsPage() {
+  const exams = [1]
+
+  return (
+    <section className="container grid items-center gap-6 pb-8 pt-6 md:py-10">
+      <div className="flex max-w-[980px] flex-col items-start gap-2">
+        <h1 className="text-3xl font-extrabold leading-tight tracking-tighter md:text-4xl">
+          Practice Exams
+        </h1>
+        <p className="max-w-[700px] text-lg text-muted-foreground">
+          Prepare the AWS Certified Cloud Practitioner CLF-C02. 390 unique
+          high-quality test questions with detailed explanations!
+        </p>
+      </div>
+      <div className="flex gap-4">
+        {exams.map((exam) => (
+          <Link href={`/exams/${exam}`} key={exam}>
+            <Card>
+              <CardHeader>
+                <CardTitle>Exam #{exam}</CardTitle>
+                <CardDescription>
+                  Practice exam that consists of 65 questions
+                </CardDescription>
+              </CardHeader>
+              <CardContent>
+                <p>Status:</p>
+              </CardContent>
+              <CardFooter>
+                <p>?/65</p>
+              </CardFooter>
+            </Card>
+          </Link>
+        ))}
+      </div>
+    </section>
+  )
+}
