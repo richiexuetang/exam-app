@@ -4,7 +4,22 @@ export interface ExamProps {}
 
 export interface ResultProps {
   _id: string
-  users: ExamProps[]
+  exam: ExamProps[]
+}
+
+export async function getExam(examId: string): Promise<ExamProps | null> {
+  const client = await clientPromise
+  const collection = client.db("aws-practice-exam").collection("exam")
+  const results = await collection.findOne<ExamProps>({
+    examId: parseInt(examId),
+  })
+  if (results) {
+    return {
+      ...results,
+    }
+  } else {
+    return null
+  }
 }
 
 export async function getAllExams(): Promise<ResultProps[]> {
@@ -26,9 +41,10 @@ export async function getAllExams(): Promise<ResultProps[]> {
           _id: {
             $toLower: { $substrCP: ["$examId", 0, 1] },
           },
-          exams: {
+          exam: {
             $push: {
               examId: "$examId",
+              questions: "$questions",
             },
           },
           count: { $sum: 1 },

@@ -12,7 +12,6 @@ import {
 
 export default async function ExamsPage() {
   const exams = await getAllExams()
-  console.log(exams, "exams")
 
   if (!exams) {
     return null
@@ -35,7 +34,7 @@ export default async function ExamsPage() {
               <CardHeader>
                 <CardTitle>Exam #{exam._id}</CardTitle>
                 <CardDescription>
-                  Practice exam that consists of 65 questions
+                  Practice exam that consists of sample questions
                 </CardDescription>
               </CardHeader>
               <CardContent>

@@ -1,0 +1,28 @@
+{
+  "examId": 1,
+  "questions": [
+    {
+      "prompt": "A company operating in the AWS Cloud requires separate invoices for specific environments, such as development, testing, and production. \n How can this be achieved?",
+      "options": [
+        {
+          "value": "A",
+          "option": "Use multiple AWS accounts"
+        },
+        {
+          "value": "B",
+          "option": "Use resource tagging"
+        },
+        {
+          "value": "C",
+          "option": "Use multiple VPCs"
+        },
+        {
+          "value": "D",
+          "option": "Use Cost Explorer"
+        }
+      ],
+      "isMultiSelect": false,
+      "answer": "A"
+    }
+  ]
+}
