@@ -1,5 +1,5 @@
 {
-  "examId": 3,
+  "examId": 1,
   "questions": [
     {
       "prompt": "AWS allows users to manage their resources using a web based user interface. What is the name of this interface?",
@@ -118,6 +118,79 @@
         }
       ],
       "isMultiSelect": false,
+      "category": ""
+    },
+    {
+      "prompt": "You have set up consolidated billing for several AWS accounts. One of the accounts has purchased a number of reserved instances for 3 years. Which of the following is true regarding this scenario?",
+      "options": [
+        {
+          "value": "A. The Reserved Instance discounts can only be shared with the master account.",
+          "isAnswer": false
+        },
+        {
+          "value": "B. All accounts can receive the hourly cost benefit of the Reserved Instances.",
+          "isAnswer": true
+        },
+        {
+          "value": "C. The purchased instances will have better performance than On-demand instances.",
+          "isAnswer": false
+        },
+        {
+          "value": "D. There are no cost benefits from using consolidated billing; It is for informational purposes only.",
+          "isAnswer": false
+        }
+      ],
+      "isMultiSelect": false,
+      "category": ""
+    },
+    {
+      "prompt": "A company has developed an eCommerce web application in AWS. What should they do to ensure that the application has the highest level of availability?",
+      "options": [
+        {
+          "value": "A. Deploy the application across multiple Availability Zones and Edge locations.",
+          "isAnswer": false
+        },
+        {
+          "value": "B. Deploy the application across multiple Availability Zones and subnets.",
+          "isAnswer": false
+        },
+        {
+          "value": "C. Deploy the application across multiple Regions and Availability Zones.",
+          "isAnswer": true
+        },
+        {
+          "value": "D. Deploy the application across multiple VPC's and subnets.",
+          "isAnswer": false
+        }
+      ],
+      "isMultiSelect": false,
+      "category": ""
+    },
+    {
+      "prompt": "What does AWS Snowball provide? (Choose TWO)",
+      "options": [
+        {
+          "value": "A. Built-in computing capabilities that allow customers to process data locally.",
+          "isAnswer": true
+        },
+        {
+          "value": "B. A catalog of third-party software solutions that customers need to build solutions and run their businesses.",
+          "isAnswer": false
+        },
+        {
+          "value": "C. A hybrid cloud storage between on-premises environments and the AWS Cloud.",
+          "isAnswer": false
+        },
+        {
+          "value": "D. An Exabyte-scale data transfer service that allows you to move extremely large amounts of data to AWS.",
+          "isAnswer": false
+        },
+        {
+          "value": "E. Secure transfer of large amounts of data into and out of the AWS.",
+          "isAnswer": true
+        }
+      ],
+      "isMultiSelect": true,
       "category": ""
     },
     {

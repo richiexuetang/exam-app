@@ -28,10 +28,9 @@ export function MultiSelectQuestion({
       render={() => (
         <FormItem>
           <div className="mb-4">
-            <FormLabel className="text-base">{question.prompt}</FormLabel>
-            {/* <FormDescription>
-              Select the items you want to display in the sidebar.
-            </FormDescription> */}
+            <FormLabel>
+              {index + 1}. {question.prompt}
+            </FormLabel>
           </div>
           {question.options.map((item) => (
             <FormField

@@ -23,17 +23,14 @@ interface QuestionFormProps {
 }
 
 export const QuestionForm = ({ questions }: QuestionFormProps) => {
-  const initialValues = {
-    q1: "",
-    q2: "",
-    q3: "",
-    q4: [],
-    q5: "",
-    q6: "",
-  }
+  const initialValues = {} as any
+
+  questions.map(
+    (question, index) =>
+      (initialValues[`q${index + 1}`] = question.isMultiSelect ? [] : "")
+  )
 
   const form = useForm({
-    // resolver: zodResolver(formSchema),
     defaultValues: { ...initialValues },
   })
 
@@ -63,7 +60,9 @@ export const QuestionForm = ({ questions }: QuestionFormProps) => {
               name={`q${(index + 1).toString()}`}
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>{question.prompt}</FormLabel>
+                  <FormLabel>
+                    {index + 1}. {question.prompt}
+                  </FormLabel>
                   <FormControl>
                     <RadioGroup
                       onValueChange={field.onChange}
