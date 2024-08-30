@@ -1,3 +1,5 @@
-export default function NotesPage() {
-  return <div>Notes</div>
+import Notes from "@/markdown/notes.mdx"
+
+export default function Page() {
+  return <Notes />
 }

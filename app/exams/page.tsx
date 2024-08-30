@@ -41,7 +41,7 @@ export default async function ExamsPage() {
                 <p>Status:</p>
               </CardContent>
               <CardFooter>
-                <p>?/65</p>
+                <p>?/50</p>
               </CardFooter>
             </Card>
           </Link>

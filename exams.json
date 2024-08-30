@@ -1,28 +1,147 @@
 {
-  "examId": 1,
+  "examId": 3,
   "questions": [
     {
-      "prompt": "A company operating in the AWS Cloud requires separate invoices for specific environments, such as development, testing, and production. \n How can this be achieved?",
+      "prompt": "AWS allows users to manage their resources using a web based user interface. What is the name of this interface?",
       "options": [
         {
-          "value": "A",
-          "option": "Use multiple AWS accounts"
+          "value": "A. AWS CLI.",
+          "isAnswer": false
         },
         {
-          "value": "B",
-          "option": "Use resource tagging"
+          "value": "B. AWS API",
+          "isAnswer": false
         },
         {
-          "value": "C",
-          "option": "Use multiple VPCs"
+          "value": "C. AWS SDK",
+          "isAnswer": false
         },
         {
-          "value": "D",
-          "option": "Use Cost Explorer"
+          "value": "D. AWS Management Console.",
+          "isAnswer": true
         }
       ],
       "isMultiSelect": false,
-      "answer": "A"
+      "category": ""
+    },
+    {
+      "prompt": "Which of the following is an example of horizontal scaling in the AWS Cloud?",
+      "options": [
+        {
+          "value": "A. Replacing an existing EC2 instance with a larger, more powerful one.",
+          "isAnswer": false
+        },
+        {
+          "value": "B. Increasing the compute capacity of a single EC2 instance to address the growing demands of an application.",
+          "isAnswer": false
+        },
+        {
+          "value": "C. Adding more RAM capacity to an EC2 instance.",
+          "isAnswer": false
+        },
+        {
+          "value": "D. Adding more EC2 instances of the same size to handle an increase in traffic.",
+          "isAnswer": true
+        }
+      ],
+      "isMultiSelect": false,
+      "category": ""
+    },
+    {
+      "prompt": "You have noticed that several critical Amazon EC2 instances have been terminated. Which of the following AWS services would help you determine who took this action?",
+      "options": [
+        {
+          "value": "A. Amazon Inspector.",
+          "isAnswer": false
+        },
+        {
+          "value": "B. AWS CloudTrail.",
+          "isAnswer": true
+        },
+        {
+          "value": "C. AWS Trusted Advisor.",
+          "isAnswer": false
+        },
+        {
+          "value": "D. EC2 Instance Usage Report.",
+          "isAnswer": false
+        }
+      ],
+      "isMultiSelect": false,
+      "category": ""
+    },
+    {
+      "prompt": "Which of the below options are related to the reliability of AWS? (Choose TWO)",
+      "options": [
+        {
+          "value": "A. Applying the principle of least privilege to all AWS resources.",
+          "isAnswer": false
+        },
+        {
+          "value": "B. Automatically provisioning new resources to meet demand.",
+          "isAnswer": true
+        },
+        {
+          "value": "C. All AWS services are considered Global Services, and this design helps customers serve their international users.",
+          "isAnswer": false
+        },
+        {
+          "value": "D. Providing compensation to customers if issues occur.",
+          "isAnswer": false
+        },
+        {
+          "value": "E. Ability to recover quickly from failures.",
+          "isAnswer": true
+        }
+      ],
+      "isMultiSelect": true,
+      "category": ""
+    },
+    {
+      "prompt": "Which statement is true regarding the AWS Shared Responsibility Model?",
+      "options": [
+        {
+          "value": "A. Responsibilities vary depending on the services used.",
+          "isAnswer": true
+        },
+        {
+          "value": "B. Security of the IaaS services is the responsibility of AWS.",
+          "isAnswer": false
+        },
+        {
+          "value": "C. Patching the guest OS is always the responsibility of AWS.",
+          "isAnswer": false
+        },
+        {
+          "value": "D. Security of the managed services is the responsibility of the customer.",
+          "isAnswer": false
+        }
+      ],
+      "isMultiSelect": false,
+      "category": ""
+    },
+    {
+      "prompt": "",
+      "options": [
+        {
+          "value": "",
+          "isAnswer": false
+        },
+        {
+          "value": "",
+          "isAnswer": false
+        },
+        {
+          "value": "",
+          "isAnswer": false
+        },
+        {
+          "value": "",
+          "isAnswer": false
+        }
+      ],
+      "isMultiSelect": false,
+      "category": ""
     }
   ]
 }

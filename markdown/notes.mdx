@@ -1,0 +1,53 @@
+# Account Management, Billing & Support
+
+- [Account Management, Billing & Support](#account-management-billing--support)
+  - [AWS Organizations](#aws-organizations)
+  - [Multi Account Strategies](#multi-account-strategies)
+  - [Service Control Policies (SCP)](#service-control-policies-scp)
+  - [AWS Organization - Consolidated Billing](#aws-organization---consolidated-billing)
+  - [AWS Control Tower](#aws-control-tower)
+  - [AWS Resource Access Manager (AWS RAM)](#aws-resource-access-manager-aws-ram)
+  - [AWS Service Catalog](#aws-service-catalog)
+  - [Pricing Models in AWS](#pricing-models-in-aws)
+  - [Compute Pricing](#compute-pricing)
+    - [EC2](#ec2)
+    - [Lambda & ECS](#lambda--ecs)
+  - [Storage Pricing](#storage-pricing)
+    - [S3](#s3)
+    - [EBS](#ebs)
+  - [Database Pricing - RDS](#database-pricing---rds)
+  - [Content Delivery - CloudFront](#content-delivery---cloudfront)
+  - [Networking Costs in AWS per GB - Simplified](#networking-costs-in-aws-per-gb---simplified)
+  - [Savings Plan](#savings-plan)
+  - [AWS Compute Optimizer](#aws-compute-optimizer)
+  - [Billing and Costing Tools](#billing-and-costing-tools)
+  - [AWS Pricing Calculator](#aws-pricing-calculator)
+  - [Cost Allocation Tags](#cost-allocation-tags)
+  - [Tagging and Resource Groups](#tagging-and-resource-groups)
+  - [Cost and Usage Reports](#cost-and-usage-reports)
+  - [Cost Explorer](#cost-explorer)
+  - [Billing Alarms in CloudWatch](#billing-alarms-in-cloudwatch)
+  - [AWS Budgets](#aws-budgets)
+  - [AWS Cost Anomaly Detection](#aws-cost-anomaly-detection)
+  - [AWS Service Quotas](#aws-service-quotas)
+  - [Trusted Advisor](#trusted-advisor)
+  - [Trusted Advisor - Support Plans](#trusted-advisor---support-plans)
+  - [AWS Basic Support Plan](#aws-basic-support-plan)
+  - [AWS Developer Support Plan](#aws-developer-support-plan)
+  - [AWS Business Support Plan (24/7)](#aws-business-support-plan-247)
+  - [AWS Enterprise On-Ramp Support Plan (24/7)](#aws-enterprise-on-ramp-support-plan-247)
+  - [AWS Enterprise Support Plan (24/7)](#aws-enterprise-support-plan-247)
+  - [Account Best Practices - Summary](#account-best-practices---summary)
+  - [Billing and Costing Tools - Summary](#billing-and-costing-tools---summary)
+
+## AWS Organizations
+
+- Global service
+- Allows to manage **multiple AWS accounts**
+- The main account is the master account
+- Cost Benefits:
+  - Consolidated Billing across all accounts - single payment method
+  - Pricing benefits from aggregated usage (volume discount for EC2, S3…)
+  - Pooling of Reserved EC2 instances for optimal savings
+- API is available to **automate AWS account creation**
+- Restrict account privileges using Service Control Policies (SCP)

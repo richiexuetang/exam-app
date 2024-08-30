@@ -1,6 +1,21 @@
 import clientPromise from "@/lib/mongodb"
 
-export interface ExamProps {}
+export interface QuestionOption {
+  value: string
+  isAnswer: boolean
+}
+
+export interface Question {
+  prompt: string
+  options: QuestionOption[]
+  isMultiSelect: boolean
+  category: string
+}
+
+export interface ExamProps {
+  examId: number
+  questions: Question[]
+}
 
 export interface ResultProps {
   _id: string
