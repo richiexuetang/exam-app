@@ -1,6 +1,7 @@
 "use client"
 
 import * as React from "react"
+import { Anchor, Col, FloatButton, Row } from "antd"
 import { useForm } from "react-hook-form"
 
 import { Question } from "@/lib/api/exam"
@@ -22,14 +23,28 @@ interface QuestionFormProps {
   questions: Question[]
 }
 
+interface AnchorItem {
+  key: string
+  href: string
+  title: string
+}
+
 export const QuestionForm = ({ questions }: QuestionFormProps) => {
   const [incorrectAnswers, setIncorrectAnswers] = React.useState<string[]>([])
   const initialValues = {} as any
+  const anchorItems: AnchorItem[] = []
 
-  questions.map(
-    (question, index) =>
-      (initialValues[`q${index + 1}`] = question.isMultiSelect ? [] : "")
-  )
+  questions.map((question, index) => {
+    const questionNumber = (index + 1).toString()
+
+    initialValues[`q${questionNumber}`] = question.isMultiSelect ? [] : ""
+    const anchorItem = {
+      key: questionNumber,
+      href: "#" + questionNumber,
+      title: "Q" + questionNumber,
+    }
+    anchorItems.push(anchorItem)
+  })
 
   const form = useForm<typeof initialValues>({
     defaultValues: { ...initialValues },
@@ -67,73 +82,75 @@ export const QuestionForm = ({ questions }: QuestionFormProps) => {
     }
   }
 
-  const onClick = () => {
-    window.location.href = "#10"
-  }
-
   return (
     <>
-      <button onClick={onClick}>10</button>
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
-          {questions?.map((question, index) => {
-            if (question.isMultiSelect) {
-              return (
-                <MultiSelectQuestion
-                  key={question.prompt}
-                  form={form}
-                  question={question}
-                  index={index}
-                />
-              )
-            }
-            return (
-              <FormField
-                control={form.control}
-                key={question.prompt}
-                // @ts-ignore
-                name={`q${(index + 1).toString()}`}
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>
-                      <h2 id={`#${index + 1}`}>
-                        <a href={`#${index + 1}`} aria-hidden="true">
-                          #
-                        </a>
-                        {index + 1}. {question.prompt}
-                      </h2>
-                    </FormLabel>
-                    <FormControl>
-                      <RadioGroup
-                        onValueChange={field.onChange}
-                        defaultValue={field.value as string}
-                        className="flex flex-col space-y-1"
-                      >
-                        {question.options.map((option, index) => (
-                          <FormItem
-                            className="flex items-center space-x-3 space-y-0"
-                            key={`${option.value}${index}`}
-                          >
+          <Row>
+            <Col span={20}>
+              {questions?.map((question, index) => {
+                return (
+                  <div id={(index + 1).toString()} className="my-4">
+                    <FormField
+                      control={form.control}
+                      key={question.prompt}
+                      // @ts-ignore
+                      name={`q${(index + 1).toString()}`}
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel className="text-base">
+                            #{index + 1}. {question.prompt}
+                          </FormLabel>
+                          {question.isMultiSelect ? (
+                            <MultiSelectQuestion
+                              key={question.prompt}
+                              form={form}
+                              question={question}
+                              index={index}
+                            />
+                          ) : (
                             <FormControl>
-                              <RadioGroupItem
-                                value={option.value}
-                                id={option.value}
-                              />
+                              <RadioGroup
+                                onValueChange={field.onChange}
+                                defaultValue={field.value as string}
+                                className="flex flex-col space-y-1"
+                              >
+                                {question.options.map((option, index) => (
+                                  <FormItem
+                                    className="flex items-center space-x-3 space-y-0"
+                                    key={`${option.value}${index}`}
+                                  >
+                                    <FormControl>
+                                      <RadioGroupItem
+                                        value={option.value}
+                                        id={option.value}
+                                      />
+                                    </FormControl>
+                                    <Label htmlFor={option.value}>
+                                      {option.value}
+                                    </Label>
+                                  </FormItem>
+                                ))}
+                              </RadioGroup>
                             </FormControl>
-                            <Label htmlFor={option.value}>{option.value}</Label>
-                          </FormItem>
-                        ))}
-                      </RadioGroup>
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
-            )
-          })}
+                          )}
+
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
+                  </div>
+                )
+              })}
+            </Col>
+            <Col span={4}>
+              <Anchor items={anchorItems} />
+            </Col>
+          </Row>
           <Button type="submit">Submit</Button>
         </form>
       </Form>
+      <FloatButton.BackTop />
       {incorrectAnswers.length > 0 && (
         <div>{50 - incorrectAnswers.length}/50</div>
       )}
