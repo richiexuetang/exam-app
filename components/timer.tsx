@@ -13,9 +13,18 @@ export const Timer = ({ expiryTimestamp }: TimerProps) => {
   })
 
   return (
-    <div className="flex flex-col items-center">
+    <div className="my-2 flex flex-col items-center">
       <div className="text-lg">
-        <span>{hours}</span>:<span>{minutes}</span>:<span>{seconds}</span>
+        <span>
+          {hours < 10 && "0"}
+          {hours}
+        </span>
+        :
+        <span>
+          {minutes < 10 && "0"}
+          {minutes}
+        </span>
+        :<span>{seconds}</span>
       </div>
       <div className="flex gap-2">
         <button onClick={pause}>Pause</button>

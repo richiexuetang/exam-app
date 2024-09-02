@@ -67,8 +67,13 @@ export const QuestionForm = ({ questions }: QuestionFormProps) => {
     }
   }
 
+  const onClick = () => {
+    window.location.href = "#10"
+  }
+
   return (
     <>
+      <button onClick={onClick}>10</button>
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
           {questions?.map((question, index) => {
@@ -91,7 +96,12 @@ export const QuestionForm = ({ questions }: QuestionFormProps) => {
                 render={({ field }) => (
                   <FormItem>
                     <FormLabel>
-                      {index + 1}. {question.prompt}
+                      <h2 id={`#${index + 1}`}>
+                        <a href={`#${index + 1}`} aria-hidden="true">
+                          #
+                        </a>
+                        {index + 1}. {question.prompt}
+                      </h2>
                     </FormLabel>
                     <FormControl>
                       <RadioGroup
@@ -124,7 +134,9 @@ export const QuestionForm = ({ questions }: QuestionFormProps) => {
           <Button type="submit">Submit</Button>
         </form>
       </Form>
-      {incorrectAnswers.length > 0 && <div>{incorrectAnswers.length}/50</div>}
+      {incorrectAnswers.length > 0 && (
+        <div>{50 - incorrectAnswers.length}/50</div>
+      )}
     </>
   )
 }

@@ -1,4 +1,7 @@
-  <li><p>A company is using EC2 Instances to run their e-commerce site on the AWS platform. If the site becomes unavailable, the company will lose a significant amount of money for each minute the site is unavailable. Which design principle should the company use to minimize the risk of an outage?</p>
+import html_to_json
+import pyperclip
+
+html_string = """  <li><p>A company is using EC2 Instances to run their e-commerce site on the AWS platform. If the site becomes unavailable, the company will lose a significant amount of money for each minute the site is unavailable. Which design principle should the company use to minimize the risk of an outage?</p>
   <ul>
   <li>A. Least Privilege.</li>
   <li>B. Pilot Light.</li>
@@ -146,7 +149,7 @@
   </li>
   <li><p>Which of the following factors should be considered when determining the region in which AWS Resources will be deployed? (Choose TWO)</p>
   <ul>
-  <li>A. The AWS Region’s security level.</li>
+  <li>A. The AWS Region's security level.</li>
   <li>B. Data sovereignty.</li>
   <li>C. Cost.</li>
   <li>D. The planned number of VPCs.</li>
@@ -189,7 +192,7 @@
     C
 
   </li>
-  <li><p>Which of the following are examples of the customer’s responsibility to implement “security IN the cloud”? (Choose TWO)</p>
+  <li><p>Which of the following are examples of the customer's responsibility to implement “security IN the cloud”? (Choose TWO)</p>
   <ul>
   <li>A. Building a schema for an application.</li>
   <li>B. Replacing physical hardware.</li>
@@ -268,7 +271,7 @@
     D
 
   </li>
-  <li><p>An external auditor is requesting a log of all accesses to the AWS resources in the company’s account. Which of the following services will provide the auditor with the requested information?</p>
+  <li><p>An external auditor is requesting a log of all accesses to the AWS resources in the company's account. Which of the following services will provide the auditor with the requested information?</p>
   <ul>
   <li>A. AWS CloudTrail.</li>
   <li>B. Amazon CloudFront.</li>
@@ -391,7 +394,7 @@
     B
 
   </li>
-  <li><p>A company is migrating a web application to AWS. The application’s compute capacity is continually utilized throughout the year. Which of the below options offers the company the most cost-effective solution?</p>
+  <li><p>A company is migrating a web application to AWS. The application's compute capacity is continually utilized throughout the year. Which of the below options offers the company the most cost-effective solution?</p>
   <ul>
   <li>A. On-demand Instances.</li>
   <li>B. Dedicated Hosts.</li>
@@ -480,7 +483,7 @@
     B
 
   </li>
-  <li><p>What should you do if you see resources, which you don’t remember creating, in the AWS Management Console? (Choose TWO)</p>
+  <li><p>What should you do if you see resources, which you don't remember creating, in the AWS Management Console? (Choose TWO)</p>
   <ul>
   <li>A. Stop all running services and open an investigation.</li>
   <li>B. Give your root account password to AWS Support so that they can assist in troubleshooting and securing the account.</li>
@@ -529,8 +532,8 @@
   <ul>
   <li>A. Lambda only supports Python and Node.js, but third party plugins are available to convert code in other languages to these formats.</li>
   <li>B. Lambda natively supports a number of programming languages such as Node.js, Python, and Java.</li>
-  <li>C. Lambda is AWS’ proprietary programming language for microservices.</li>
-  <li>D. Lambda doesn’t support programming languages; it is a serverless compute service.</li>
+  <li>C. Lambda is AWS' proprietary programming language for microservices.</li>
+  <li>D. Lambda doesn't support programming languages; it is a serverless compute service.</li>
   <li>E. Lambda can support any programming language using an API.</li>
   </ul>
 
@@ -548,3 +551,7 @@
 
     B, C
   </li>
+
+  """
+output_json = html_to_json.convert(html_string)
+pyperclip.copy(output_json)

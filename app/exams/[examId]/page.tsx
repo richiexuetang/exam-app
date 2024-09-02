@@ -8,7 +8,7 @@ export default async function ExamPage({
   params: { examId: string }
 }) {
   const time = new Date()
-  time.setSeconds(time.getSeconds() + 60 * 70) // 70 minutes timer
+  time.setSeconds(time.getSeconds() + 60 * 70)
 
   const exam = await getExam(params.examId)
 

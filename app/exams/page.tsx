@@ -23,8 +23,7 @@ export default async function ExamsPage() {
           Practice Exams
         </h1>
         <p className="max-w-[700px] text-lg text-muted-foreground">
-          Prepare the AWS Certified Cloud Practitioner CLF-C02. 390 unique
-          high-quality test questions with detailed explanations!
+          Prepare the AWS Certified Cloud Practitioner CLF-C02.
         </p>
       </div>
       <div className="flex gap-4">
