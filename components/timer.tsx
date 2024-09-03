@@ -9,7 +9,7 @@ interface TimerProps {
 export const Timer = ({ expiryTimestamp }: TimerProps) => {
   const { seconds, minutes, hours, start, pause, resume } = useTimer({
     expiryTimestamp,
-    onExpire: () => console.warn("onExpire called"),
+    onExpire: () => alert("time ran out"),
   })
 
   return (

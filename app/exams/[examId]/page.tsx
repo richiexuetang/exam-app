@@ -15,10 +15,9 @@ export default async function ExamPage({
   return (
     <div className="m-5 flex flex-col items-center">
       Practice Exam: {params.examId}
-      <Timer expiryTimestamp={time} />
-      <div className="my-5">
-        {exam?.questions && <QuestionForm questions={exam?.questions} />}
-      </div>
+      {exam?.questions && (
+        <QuestionForm questions={exam?.questions} expiryTimestamp={time} />
+      )}
     </div>
   )
 }
