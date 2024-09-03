@@ -1,7 +1,7 @@
 "use client"
 
 import * as React from "react"
-import { Anchor, Col, FloatButton, Row } from "antd"
+import { Anchor, Col, FloatButton, Row, Tag } from "antd"
 import { useForm } from "react-hook-form"
 
 import { Question } from "@/lib/api/exam"
@@ -26,7 +26,7 @@ interface QuestionFormProps {
 interface AnchorItem {
   key: string
   href: string
-  title: string
+  title: string | React.ReactNode
 }
 
 export const QuestionForm = ({ questions }: QuestionFormProps) => {
@@ -41,7 +41,11 @@ export const QuestionForm = ({ questions }: QuestionFormProps) => {
     const anchorItem = {
       key: questionNumber,
       href: "#" + questionNumber,
-      title: "Q" + questionNumber,
+      title: (
+        <Tag color="default">
+          {"Q" + (questionNumber.length === 1 ? " " : "") + questionNumber}
+        </Tag>
+      ),
     }
     anchorItems.push(anchorItem)
   })
@@ -87,10 +91,10 @@ export const QuestionForm = ({ questions }: QuestionFormProps) => {
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
           <Row>
-            <Col span={20}>
+            <Col span={22}>
               {questions?.map((question, index) => {
                 return (
-                  <div id={(index + 1).toString()} className="my-4">
+                  <div id={(index + 1).toString()} className="m-6">
                     <FormField
                       control={form.control}
                       key={question.prompt}
@@ -99,7 +103,7 @@ export const QuestionForm = ({ questions }: QuestionFormProps) => {
                       render={({ field }) => (
                         <FormItem>
                           <FormLabel className="text-base">
-                            #{index + 1}. {question.prompt}
+                            # {index + 1}. {question.prompt}
                           </FormLabel>
                           {question.isMultiSelect ? (
                             <MultiSelectQuestion
@@ -134,7 +138,6 @@ export const QuestionForm = ({ questions }: QuestionFormProps) => {
                               </RadioGroup>
                             </FormControl>
                           )}
-
                           <FormMessage />
                         </FormItem>
                       )}
@@ -143,7 +146,7 @@ export const QuestionForm = ({ questions }: QuestionFormProps) => {
                 )
               })}
             </Col>
-            <Col span={4}>
+            <Col span={2}>
               <Anchor items={anchorItems} />
             </Col>
           </Row>
